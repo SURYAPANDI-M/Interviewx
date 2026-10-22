@@ -44,7 +44,7 @@ body:before{opacity:.035}
 .notice{line-height:1.8}
 input,textarea,select{accent-color:#6e63ed}
 button:focus-visible,a:focus-visible{outline:3px solid #8b83f7;outline-offset:3px}
-@media(max-width:900px){.auth-shell{grid-template-columns:1fr}.auth-story{padding:26px 24px 0;border-right:0}.story-copy{padding:48px 0 12px}.hero-title{font-size:clamp(38px,9vw,60px);letter-spacing:-2px}.visual-stage{display:none}.auth-panel{padding:24px 18px 50px}.auth-foot{position:static;margin-top:20px}.app-shell{grid-template-columns:1fr}.sidebar{position:sticky;top:0;z-index:15;padding:12px;gap:12px;border-right:0;border-bottom:1px solid #e7e9f1}.sidebar .brand{padding:0 6px}.sidebar .nav{display:flex;overflow-x:auto;gap:4px}.nav button{white-space:nowrap;padding:10px}.side-bottom{display:none}.main{padding:22px 16px}.span-8,.span-4,.span-6{grid-column:span 12}.company-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.topbar{align-items:flex-start}.topbar>.pill{display:none}}
+@media(max-width:900px){.auth-shell{grid-template-columns:1fr}.auth-story{padding:26px 24px 0;border-right:0}.story-copy{padding:48px 0 12px}.hero-title{font-size:clamp(38px,9vw,60px);letter-spacing:-2px}.visual-stage{display:none}.auth-panel{padding:24px 18px 50px}.auth-foot{position:static;margin-top:20px}.app-shell{grid-template-columns:1fr}.sidebar{position:sticky;top:0;z-index:15;padding:12px;gap:12px;border-right:0;border-bottom:1px solid #26334e}.sidebar .brand{padding:0 6px}.sidebar .nav{display:flex;overflow-x:auto;gap:4px}.nav button{white-space:nowrap;padding:10px}.side-bottom{display:none}.main{padding:22px 16px}.span-8,.span-4,.span-6{grid-column:span 12}.company-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.topbar{align-items:flex-start}.topbar>.pill{display:none}}
 @media(max-width:440px){.auth-card{padding:25px 20px}.trust-row{gap:12px}.trust-row span{font-size:11px}.company-grid{grid-template-columns:1fr}.social{grid-template-columns:1fr 1fr}.hero-title{line-height:1.08}}
 
 
@@ -125,6 +125,123 @@ body{background-size:180% 180%;animation:ambientCanvas 24s ease-in-out infinite 
 .company:hover .company-logo{transform:translateY(-3px) rotate(-4deg) scale(1.07);box-shadow:0 10px 24px #617aff22}
 button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #a8b8ff;outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important;}}
+
+
+/* INTERVIEWX PREMIUM DESIGN PASS 2026 — preserves the midnight navy / blue / violet identity */
+:root{
+ --bg:#070b17;--panel:#0d1426;--panel2:#111d34;--line:#26334e;
+ --muted:#a4b1cb;--white:#f4f7ff;--blue:#7895ff;--violet:#a78bfa;--mint:#6fe3cf;
+ --surface-shadow:0 18px 52px rgba(0,0,0,.22);
+ --surface-border:rgba(126,151,211,.19);
+}
+html{background:var(--bg)}
+body{
+ color:var(--white);
+ background:
+  radial-gradient(ellipse at 76% 0%,rgba(72,91,174,.16),transparent 35%),
+  radial-gradient(ellipse at 8% 72%,rgba(99,65,173,.10),transparent 30%),
+  var(--bg);
+}
+.app-shell{background:transparent}
+.sidebar{
+ background:linear-gradient(180deg,rgba(9,16,32,.98),rgba(7,12,24,.98));
+ border-right:1px solid var(--surface-border);
+ padding:28px 16px;
+}
+.sidebar .brand{padding:0 10px 8px;font-size:20px}
+.nav{gap:8px}
+.nav button{padding:13px 12px;border-radius:12px;letter-spacing:.05px}
+.nav button.active{background:linear-gradient(100deg,rgba(71,103,183,.22),rgba(104,79,179,.13));border-color:rgba(126,151,211,.20)}
+.nav .navicon{width:26px}
+.main{max-width:1600px;padding:clamp(26px,3.5vw,54px) clamp(22px,4vw,64px)}
+.topbar{margin-bottom:34px;align-items:center}
+.eyebrow{font-size:10px;letter-spacing:2px;color:#aebcff}
+.page-title{font-size:clamp(28px,3vw,39px);line-height:1.14;letter-spacing:-1.5px;margin:10px 0 9px}
+.muted{color:var(--muted);line-height:1.78}
+.grid{gap:22px}
+.card{
+ border:1px solid var(--surface-border);
+ border-radius:19px;
+ background:linear-gradient(145deg,rgba(17,28,49,.96),rgba(11,19,36,.96));
+ box-shadow:0 8px 28px rgba(0,0,0,.10);
+ padding:24px;
+}
+.card:hover{border-color:rgba(126,151,211,.35);box-shadow:var(--surface-shadow)}
+.mode-card{
+ min-height:190px;padding:29px;gap:20px;
+ background:radial-gradient(ellipse at 100% 0%,rgba(91,119,226,.13),transparent 45%),linear-gradient(145deg,#111d34,#0c1427);
+}
+.mode-card h3{font:700 19px/1.35 Manrope,sans-serif;letter-spacing:-.45px;margin:2px 0 10px}
+.mode-card .muted{max-width:470px;font-size:13px}
+.mode-icon{border:1px solid rgba(135,158,255,.23);box-shadow:inset 0 1px rgba(255,255,255,.04),0 8px 24px rgba(0,0,0,.14)}
+.section-head{margin:30px 0 15px;align-items:center}
+.section-head h3{font:700 16px Manrope,sans-serif;letter-spacing:-.35px}
+.pill,.chip{border-color:var(--surface-border);background:rgba(18,29,51,.75)}
+.primary{
+ border-radius:12px;padding:14px 17px;
+ background:linear-gradient(105deg,#587fff 0%,#6f68f2 58%,#875de9 100%);
+ box-shadow:0 10px 26px rgba(91,105,235,.19);
+ letter-spacing:.05px;
+}
+.primary:hover{box-shadow:0 14px 32px rgba(91,105,235,.28)}
+.link-button,.text-button{transition:color .2s ease,opacity .2s ease}
+.link-button:hover,.text-button:hover{color:#d4dcff}
+.field label{font-size:12px;letter-spacing:.15px;color:#c3cee4}
+.field input,.field textarea,.field select,
+#companySearch{
+ background:rgba(6,12,25,.78);border:1px solid #2a3a57;border-radius:12px;
+ padding:14px 15px;min-height:47px;
+ transition:border-color .22s ease,box-shadow .22s ease,background .22s ease;
+}
+.field input:focus,.field textarea:focus,.field select:focus,#companySearch:focus{
+ background:#091326;border-color:#8197ff;box-shadow:0 0 0 4px rgba(117,148,255,.11);
+}
+textarea{line-height:1.7}
+.company-grid{gap:15px}
+.company,.company-card{border-radius:16px}
+.company:hover,.company-card:hover{border-color:rgba(126,151,211,.36)}
+.stat{font-family:Manrope,sans-serif;letter-spacing:-1.5px}
+.bar{height:6px;border-radius:99px;background:#1b2942;overflow:hidden}
+.bar i{border-radius:99px;background:linear-gradient(90deg,#7294ff,#a184ff,#6fe3cf)}
+.notice{border:1px solid rgba(126,151,211,.14);background:rgba(10,19,36,.66);border-radius:13px;padding:14px 16px;color:#aab8d3;line-height:1.7}
+.footer{color:#7183a5;border-top:1px solid rgba(126,151,211,.12);padding-top:20px;margin-top:38px}
+.auth-shell{background:transparent}
+.auth-story{border-right-color:rgba(126,151,211,.14)}
+.auth-panel{background:radial-gradient(ellipse at 50% 42%,rgba(66,83,160,.09),transparent 55%)}
+.auth-card{
+ width:min(100%,440px);padding:clamp(28px,3vw,42px);
+ border-radius:26px;
+ background:linear-gradient(145deg,rgba(17,27,48,.97),rgba(9,16,31,.98));
+ border-color:rgba(126,151,211,.24);
+ box-shadow:0 32px 100px rgba(0,0,0,.36),inset 0 1px rgba(255,255,255,.025);
+}
+.auth-card h2{font-size:30px;letter-spacing:-1.2px}
+.auth-card .intro{line-height:1.8}
+.auth-tabs{border:1px solid rgba(126,151,211,.12)}
+.auth-tabs button.active{background:linear-gradient(100deg,rgba(72,104,183,.35),rgba(113,85,184,.23));color:#fff}
+.auth-card .field input{border-radius:12px}
+.auth-card .primary{min-height:49px}
+.auth-card .social button{border-radius:11px;padding:12px;background:rgba(9,19,37,.88)}
+.auth-foot{color:#7183a5}
+#permission .card{max-width:720px!important}
+#permission .card h2{letter-spacing:-.7px}
+#live .card,#results .card{border-radius:20px}
+.question{line-height:1.7;letter-spacing:-.2px}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline-color:#b3c2ff}
+@media(max-width:900px){
+ .sidebar{border-bottom:1px solid var(--surface-border);padding:13px 12px}
+ .main{padding:25px 18px}
+ .topbar{margin-bottom:25px}
+ .mode-card{min-height:0;padding:23px}
+ .card{padding:21px}
+ .auth-card{padding:30px 26px}
+}
+@media(max-width:440px){
+ .main{padding:20px 14px}
+ .card{padding:18px;border-radius:16px}
+ .mode-card{padding:20px}
+ .page-title{font-size:28px}
+}
 
 </style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script><script src="./config.js"></script></head><body>
 <div class="ambient a1"></div><div class="ambient a2"></div>
