@@ -15,6 +15,38 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:inherit;
 @keyframes screenReveal{from{opacity:0;transform:translateY(14px) scale(.995);filter:blur(3px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}.auth-shell:not(.hidden){animation:screenReveal .7s cubic-bezier(.2,.7,.2,1) both}.app-shell:not(.hidden){animation:screenReveal .65s cubic-bezier(.2,.7,.2,1) both}.auth-card{transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}.auth-card:focus-within{border-color:#526ba8;box-shadow:0 35px 100px #0005,0 0 0 1px #8190ff22}.screen.active{animation:appear .5s cubic-bezier(.2,.7,.2,1) both}@media(max-width:1000px){.auth-shell{grid-template-columns:1fr}.auth-story{display:none}.auth-panel{min-height:100vh}.app-shell{grid-template-columns:1fr}.sidebar{position:sticky;top:0;z-index:4;flex-direction:row;align-items:center;justify-content:space-between;padding:11px 14px;gap:10px}.sidebar .brand{font-size:17px}.nav{display:flex;overflow:auto;gap:3px}.nav button{white-space:nowrap;padding:9px;font-size:10px}.nav .navicon{width:auto;margin-right:5px}.side-bottom{display:none}.main{padding:22px 16px}.live-grid{grid-template-columns:1fr}.orb-zone{min-height:170px}.span-8,.span-4{grid-column:span 12}.company-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:580px){.auth-card{padding:24px}.auth-panel{padding:18px}.topbar{align-items:flex-start;flex-direction:column}.company-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.span-6{grid-column:span 12}.nav button:nth-child(4),.nav button:nth-child(5){display:none}.card{padding:15px}.page-title{font-size:28px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+
+/* InterviewX refresh: calm editorial workspace, clearer hierarchy, less neon */
+:root{--bg:#f6f7fb;--panel:#ffffff;--panel2:#f0f2fa;--line:#e3e6f0;--muted:#69738a;--white:#20253a;--blue:#625cf4;--violet:#8a69e8;--mint:#168f82;--gold:#9b7731}
+body{color:#20253a;background:radial-gradient(ellipse at 80% 0%,#e7e9ff 0,transparent 42%),#f7f8fc}
+body:before{opacity:.035}
+.ambient{opacity:.07}
+.brand{color:#22263a}.brand span{color:#655cf4}.brandmark{border:1px solid #dedbff;background:linear-gradient(145deg,#776bf7,#6554df);box-shadow:0 5px 18px #665cf42b}
+.auth-shell{background:transparent}
+.auth-story{border-right:1px solid #e5e7f1}
+.kicker{border-color:#e0ddff;background:#fff;color:#625b91}
+.hero-title{color:#20243a}.gradient-text{background:linear-gradient(100deg,#5d5ae9,#9a69d9);-webkit-background-clip:text;background-clip:text}
+.story-sub,.muted{color:#69738a}
+.trust-row{color:#657087}.check{color:#168f82}
+.visual-glow{background:#8379ff;opacity:.14}.orbit{border-color:#8b8be52c}.orbit:before,.orbit:after{box-shadow:0 0 18px #8ca5ff77}.core{box-shadow:0 0 0 15px #8da4ff0c,0 0 55px #7785ff28}
+.float-card{border:1px solid #e5e7f2;background:#ffffffdf;box-shadow:0 12px 35px #20274a0d;color:#343951}.float-card small{color:#79829a}
+.auth-card{border:1px solid #e5e7f1;background:#fff;box-shadow:0 25px 80px #323d6c12}
+.auth-card h2{color:#22263a}.auth-card .intro{color:#717a90}
+.auth-tabs{background:#f3f4fa}.auth-tabs button{color:#717b91}.auth-tabs button.active{background:#fff;color:#363956;box-shadow:0 2px 8px #22263a12}
+.field label{color:#525b73}.field input,.field select,.field textarea{background:#fbfbfe;border-color:#e0e4ef;color:#252a40}.field input::placeholder,.field textarea::placeholder{color:#9ba3b5}.field input:focus,.field select:focus,.field textarea:focus{border-color:#8b83f7;box-shadow:0 0 0 3px #8277f51a}
+.row-between{color:#727b91}.text-button{color:#655cf0}.divider{color:#a0a6b7}.divider:before,.divider:after{background:#e8eaf2}.social button{background:#fbfbfe;border-color:#e2e5ef;color:#4d566d}.legal{color:#9098aa}.auth-foot{color:#9aa1b1}
+.app-shell{background:transparent}.sidebar{background:#fff;border-right:1px solid #e7e9f1;box-shadow:4px 0 25px #252c4a04}.nav button{color:#747d93}.nav button:hover,.nav button.active{color:#5148cf;background:#f1f0ff;border-color:#e3e0ff}.nav .navicon{color:#736af1}.notice{border-color:#e8e6ff;background:#f7f6ff;color:#62628b}.candidate{border-top-color:#eceef5}.candidate b{color:#30354b}.candidate small{color:#8991a4}.avatar{background:linear-gradient(140deg,#7469f4,#9b79e6)}
+.eyebrow{color:#7268e8}.page-title{color:#20243a}.pill{border-color:#e3e6f0;background:#fff;color:#737d93}.dot{background:#19a38f;box-shadow:0 0 8px #19a38f38}
+.card{background:#fff;border-color:#e5e8f1;box-shadow:0 10px 30px #29345b06}.card:hover{border-color:#c9c5ff;box-shadow:0 15px 36px #29345b0b}
+.mode-icon{border-color:#e0ddff;background:#f1f0ff;color:#655cf0}.mode-icon.mint{background:#e9f8f4;border-color:#d3f0e8;color:#148b7e}.chip{background:#f0efff;color:#665ed0}.arrow{color:#7369ee}
+.company-logo{background:linear-gradient(145deg,#f1f0ff,#e7e8ff);color:#5e55d4}.tags span{background:#f2f4fa;color:#6979a1}
+.stat{color:#262b40}.stat-caption{color:#8790a4}.bar{background:#eceef5}.bar i{background:linear-gradient(90deg,#43c8b3,#7b70f2)}
+.notice{line-height:1.8}
+input,textarea,select{accent-color:#6e63ed}
+button:focus-visible,a:focus-visible{outline:3px solid #8b83f7;outline-offset:3px}
+@media(max-width:900px){.auth-shell{grid-template-columns:1fr}.auth-story{padding:26px 24px 0;border-right:0}.story-copy{padding:48px 0 12px}.hero-title{font-size:clamp(38px,9vw,60px);letter-spacing:-2px}.visual-stage{display:none}.auth-panel{padding:24px 18px 50px}.auth-foot{position:static;margin-top:20px}.app-shell{grid-template-columns:1fr}.sidebar{position:sticky;top:0;z-index:15;padding:12px;gap:12px;border-right:0;border-bottom:1px solid #e7e9f1}.sidebar .brand{padding:0 6px}.sidebar .nav{display:flex;overflow-x:auto;gap:4px}.nav button{white-space:nowrap;padding:10px}.side-bottom{display:none}.main{padding:22px 16px}.span-8,.span-4,.span-6{grid-column:span 12}.company-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.topbar{align-items:flex-start}.topbar>.pill{display:none}}
+@media(max-width:440px){.auth-card{padding:25px 20px}.trust-row{gap:12px}.trust-row span{font-size:11px}.company-grid{grid-template-columns:1fr}.social{grid-template-columns:1fr 1fr}.hero-title{line-height:1.08}}
+
 </style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script><script src="./config.js"></script></head><body>
 <div class="ambient a1"></div><div class="ambient a2"></div>
 <section id="auth" class="auth-shell">
