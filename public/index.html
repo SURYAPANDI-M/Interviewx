@@ -47,6 +47,85 @@ button:focus-visible,a:focus-visible{outline:3px solid #8b83f7;outline-offset:3p
 @media(max-width:900px){.auth-shell{grid-template-columns:1fr}.auth-story{padding:26px 24px 0;border-right:0}.story-copy{padding:48px 0 12px}.hero-title{font-size:clamp(38px,9vw,60px);letter-spacing:-2px}.visual-stage{display:none}.auth-panel{padding:24px 18px 50px}.auth-foot{position:static;margin-top:20px}.app-shell{grid-template-columns:1fr}.sidebar{position:sticky;top:0;z-index:15;padding:12px;gap:12px;border-right:0;border-bottom:1px solid #e7e9f1}.sidebar .brand{padding:0 6px}.sidebar .nav{display:flex;overflow-x:auto;gap:4px}.nav button{white-space:nowrap;padding:10px}.side-bottom{display:none}.main{padding:22px 16px}.span-8,.span-4,.span-6{grid-column:span 12}.company-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.topbar{align-items:flex-start}.topbar>.pill{display:none}}
 @media(max-width:440px){.auth-card{padding:25px 20px}.trust-row{gap:12px}.trust-row span{font-size:11px}.company-grid{grid-template-columns:1fr}.social{grid-template-columns:1fr 1fr}.hero-title{line-height:1.08}}
 
+
+/* INTERVIEWX MOTION SYSTEM — cinematic but calm, with reduced-motion support */
+:root{--motion-ease:cubic-bezier(.22,1,.36,1);--motion-fast:220ms;--motion-mid:620ms;--motion-slow:1000ms}
+body{background-size:180% 180%;animation:ambientCanvas 24s ease-in-out infinite alternate}
+@keyframes ambientCanvas{0%{background-position:0% 0%}100%{background-position:100% 80%}}
+.auth-shell{isolation:isolate;overflow:hidden}
+.auth-shell:before{content:"";position:absolute;inset:-20%;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 18% 22%,#6e7fff1d,transparent 33%),radial-gradient(ellipse at 78% 70%,#a36bff18,transparent 30%),radial-gradient(ellipse at 48% 48%,#4edacb0b,transparent 42%);background-size:140% 140%;animation:authNebula 16s ease-in-out infinite alternate}
+.auth-shell:after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.23;background-image:radial-gradient(2px 2px at 12% 20%,#dce5ff 60%,transparent 100%),radial-gradient(1px 1px at 34% 73%,#b6c6ff 60%,transparent 100%),radial-gradient(2px 2px at 71% 17%,#b4a5ff 60%,transparent 100%),radial-gradient(1px 1px at 88% 65%,#d9e5ff 60%,transparent 100%),radial-gradient(1px 1px at 55% 42%,#ffffff 60%,transparent 100%);background-size:100% 100%;animation:starDrift 22s linear infinite}
+@keyframes authNebula{0%{transform:translate3d(-1.5%,1%,0) scale(1)}100%{transform:translate3d(2%,-1.5%,0) scale(1.08)}}
+@keyframes starDrift{0%{background-position:0 0,0 0,0 0,0 0,0 0}100%{background-position:0 -30px,0 24px,0 -18px,0 32px,0 -12px}}
+.auth-story{animation:storyGlide 1.15s var(--motion-ease) both}
+.auth-story .brand{animation:brandSettle .9s var(--motion-ease) .12s both}
+.story-copy .kicker{animation:riseAndGlow .75s var(--motion-ease) .22s both}
+.story-copy .hero-title{animation:heroReveal 1.05s var(--motion-ease) .32s both}
+.story-copy .story-sub{animation:riseAndGlow .8s var(--motion-ease) .45s both}
+.story-copy .trust-row{animation:riseAndGlow .8s var(--motion-ease) .58s both}
+.story-copy .visual-stage{animation:visualArrive 1.1s var(--motion-ease) .42s both}
+.hero-title .gradient-text{background-size:200% auto;animation:gradientGlint 8s ease-in-out infinite}
+.auth-card{position:relative;isolation:isolate;overflow:hidden;animation:cardBloom 1.05s var(--motion-ease) .18s both;transition:box-shadow .45s ease,border-color .45s ease,transform .45s var(--motion-ease)}
+.auth-card:before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;opacity:.62;background:linear-gradient(125deg,#93aaff70,transparent 28%,#bba3ff35 58%,transparent 78%,#77e4d255);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.auth-card:after{content:"";position:absolute;top:-60%;left:-80%;width:55%;height:220%;pointer-events:none;z-index:0;transform:rotate(22deg);background:linear-gradient(90deg,transparent,#c8d5ff0a,#c8d5ff14,transparent);animation:cardSheen 8s ease-in-out 1.3s infinite}
+.auth-card>*{position:relative;z-index:1}
+.auth-card:hover{border-color:#536aa0;box-shadow:0 40px 110px #0007,0 0 44px #7187ff12}
+.auth-card .brandmark{animation:logoBloom 1.2s var(--motion-ease) .5s both,logoBreath 5s ease-in-out 2s infinite}
+.auth-card h2{animation:riseAndGlow .7s var(--motion-ease) .32s both}
+.auth-card .intro{animation:riseAndGlow .7s var(--motion-ease) .4s both}
+.auth-card .field:not(.hidden){animation:fieldBloom .65s var(--motion-ease) both;animation-delay:calc(.44s + var(--field-order, 0)*.075s)}
+.auth-card .field:nth-of-type(1){--field-order:0}.auth-card .field:nth-of-type(2){--field-order:1}.auth-card .field:nth-of-type(3){--field-order:2}.auth-card .field:nth-of-type(4){--field-order:3}
+.auth-card .auth-tabs{animation:riseAndGlow .7s var(--motion-ease) .38s both}
+.auth-card .row-between,.auth-card #authStatus{animation:riseAndGlow .65s var(--motion-ease) .62s both}
+.auth-card .primary{position:relative;overflow:hidden;transition:transform .28s var(--motion-ease),box-shadow .3s ease,filter .3s ease}
+.auth-card .primary:before{content:"";position:absolute;inset:0;transform:translateX(-130%) skewX(-20deg);background:linear-gradient(90deg,transparent,#ffffff2c,transparent);transition:transform .7s var(--motion-ease)}
+.auth-card .primary:hover:before{transform:translateX(130%) skewX(-20deg)}
+.auth-card .primary:active{transform:scale(.985)}
+.auth-card .social button,.auth-tabs button,.nav button,.tabs button,.chip,.pill{transition:transform .25s var(--motion-ease),background .3s ease,border-color .3s ease,color .3s ease,box-shadow .3s ease}
+.auth-card .social button:hover{transform:translateY(-3px);border-color:#7388c7;box-shadow:0 10px 25px #0003}
+.auth-card.auth-switching{animation:formSwitch .42s var(--motion-ease) both}
+@keyframes storyGlide{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:translateX(0)}}
+@keyframes brandSettle{from{opacity:0;transform:translateY(-10px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes riseAndGlow{from{opacity:0;transform:translateY(16px);filter:blur(4px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes heroReveal{from{opacity:0;transform:translateY(22px);filter:blur(7px);letter-spacing:-1px}to{opacity:1;transform:translateY(0);filter:blur(0);letter-spacing:inherit}}
+@keyframes visualArrive{from{opacity:0;transform:translateY(20px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes cardBloom{0%{opacity:0;transform:translateY(28px) scale(.965);filter:blur(7px)}70%{opacity:1;filter:blur(0)}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+@keyframes fieldBloom{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes logoBloom{0%{opacity:0;transform:rotate(-25deg) scale(.5);box-shadow:0 0 0 #758cff00}70%{transform:rotate(7deg) scale(1.12);box-shadow:0 0 28px #758cff55}100%{opacity:1;transform:rotate(0) scale(1)}}
+@keyframes logoBreath{50%{box-shadow:0 5px 27px #687bff55}}
+@keyframes gradientGlint{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes cardSheen{0%,55%{left:-80%;opacity:0}65%{opacity:1}85%,100%{left:145%;opacity:0}}
+@keyframes formSwitch{0%{opacity:.75;transform:translateY(5px) scale(.99)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.screen{animation:none}
+.screen.active{animation:pageReveal .72s var(--motion-ease) both}
+.screen.screen-exit{display:block;animation:pageExit .18s ease both;pointer-events:none}
+.screen.screen-enter{animation:pageReveal .78s var(--motion-ease) both}
+.screen.active .topbar{animation:riseAndGlow .62s var(--motion-ease) both}
+.screen.active .grid>.card:nth-child(1){animation-delay:.06s}.screen.active .grid>.card:nth-child(2){animation-delay:.12s}.screen.active .grid>.card:nth-child(3){animation-delay:.18s}.screen.active .grid>.card:nth-child(4){animation-delay:.24s}.screen.active .grid>.card:nth-child(5){animation-delay:.30s}.screen.active .grid>.card:nth-child(6){animation-delay:.36s}.screen.active .grid>.card:nth-child(7){animation-delay:.42s}.screen.active .grid>.card:nth-child(8){animation-delay:.48s}
+.screen.active .grid>.card{animation-name:cardLiftIn;animation-duration:.7s;animation-timing-function:var(--motion-ease);animation-fill-mode:both}
+@keyframes pageReveal{from{opacity:0;transform:translateY(15px) scale(.996);filter:blur(3px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+@keyframes pageExit{to{opacity:0;transform:translateY(-7px) scale(.997);filter:blur(2px)}}
+@keyframes cardLiftIn{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.app-shell.app-enter{animation:appPortal .95s var(--motion-ease) both}
+.app-shell.app-enter .sidebar{animation:sidebarReveal .8s var(--motion-ease) both}
+.app-shell.app-enter .main{animation:mainReveal .85s var(--motion-ease) .08s both}
+.auth-shell.auth-exit{animation:authPortalOut .28s ease both;pointer-events:none}
+.auth-shell.auth-reenter{animation:authPortalIn .75s var(--motion-ease) both}
+@keyframes appPortal{from{opacity:0;transform:scale(.985);filter:blur(5px)}to{opacity:1;transform:scale(1);filter:blur(0)}}
+@keyframes sidebarReveal{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:translateX(0)}}
+@keyframes mainReveal{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes authPortalOut{to{opacity:0;transform:scale(1.015);filter:blur(6px)}}
+@keyframes authPortalIn{from{opacity:0;transform:scale(.985);filter:blur(5px)}to{opacity:1;transform:scale(1);filter:blur(0)}}
+.card{transition:transform .38s var(--motion-ease),border-color .3s ease,box-shadow .38s ease}
+.card:hover{transform:translateY(-5px);box-shadow:0 22px 48px #0003}
+.mode-card:hover{transform:translateY(-6px) scale(1.008)}
+.nav button:hover{transform:translateX(3px)}
+.nav button.active{box-shadow:inset 3px 0 #91a5ff,0 8px 22px #0002}
+.company-logo{transition:transform .35s var(--motion-ease),box-shadow .35s ease}
+.company:hover .company-logo{transform:translateY(-3px) rotate(-4deg) scale(1.07);box-shadow:0 10px 24px #617aff22}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #a8b8ff;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important;}}
+
 </style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script><script src="./config.js"></script></head><body>
 <div class="ambient a1"></div><div class="ambient a2"></div>
 <section id="auth" class="auth-shell">
@@ -72,16 +151,27 @@ const cfg=window.INTERVIEWX_CONFIG||{};
 const configured=Boolean(cfg.supabaseUrl&&cfg.supabaseAnonKey&&!String(cfg.supabaseUrl).includes('YOUR_PROJECT'));
 const sb=configured&&window.supabase?window.supabase.createClient(cfg.supabaseUrl,cfg.supabaseAnonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}}):null;
 function status(message,isError=false){const el=$('authStatus');if(el){el.textContent=message;el.style.color=isError?'#ff9fae':'#b9c9ff'}}
-function setAuthMode(mode){authMode=mode;const signup=mode==='signup';$('signinTab').classList.toggle('active',!signup);$('signupTab').classList.toggle('active',signup);$('nameField').classList.toggle('hidden',!signup);$('confirmField').classList.toggle('hidden',!signup);$('authTitle').textContent=signup?'Create your account':'Welcome back';$('authIntro').textContent=signup?'Create a secure account to save your interview preparation.':'Sign in to continue your interview preparation.';$('submitAuth').innerHTML=(signup?'Create account':'Sign in securely')+' <span style="float:right">↗</span>';$('password').autocomplete=signup?'new-password':'current-password';$('confirmPassword').required=signup;$('fullName').required=signup;$('forgot').style.visibility=signup?'hidden':'visible';['emailError','passwordError','confirmError'].forEach(id=>$(id).textContent='');if(!configured)status('Setup required: add your Supabase project URL and public anon key in public/config.js.',true)}
+function setAuthMode(mode){const authCard=$('authForm');if(authCard&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){authCard.classList.remove('auth-switching');void authCard.offsetWidth;authCard.classList.add('auth-switching');setTimeout(()=>authCard.classList.remove('auth-switching'),440)}authMode=mode;const signup=mode==='signup';$('signinTab').classList.toggle('active',!signup);$('signupTab').classList.toggle('active',signup);$('nameField').classList.toggle('hidden',!signup);$('confirmField').classList.toggle('hidden',!signup);$('authTitle').textContent=signup?'Create your account':'Welcome back';$('authIntro').textContent=signup?'Create a secure account to save your interview preparation.':'Sign in to continue your interview preparation.';$('submitAuth').innerHTML=(signup?'Create account':'Sign in securely')+' <span style="float:right">↗</span>';$('password').autocomplete=signup?'new-password':'current-password';$('confirmPassword').required=signup;$('fullName').required=signup;$('forgot').style.visibility=signup?'hidden':'visible';['emailError','passwordError','confirmError'].forEach(id=>$(id).textContent='');if(!configured)status('Setup required: add your Supabase project URL and public anon key in public/config.js.',true)}
 $('signinTab').onclick=()=>{setAuthMode('signin');status('Ready to sign in.')};$('signupTab').onclick=()=>{setAuthMode('signup');status('Ready to create your account.')};
 $('authForm').addEventListener('submit',async e=>{e.preventDefault();let valid=true;const email=$('email').value.trim(),pass=$('password').value;const emailErr=$('emailError'),passErr=$('passwordError'),confErr=$('confirmError');[emailErr,passErr,confErr].forEach(x=>x.textContent='');if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){emailErr.textContent='Enter a valid email address.';valid=false}if(pass.length<8){passErr.textContent='Use at least 8 characters.';valid=false}if(authMode==='signup'&&pass!==$('confirmPassword').value){confErr.textContent='Passwords do not match.';valid=false}if(authMode==='signup'&&!$('fullName').value.trim()){$('fullName').nextElementSibling.textContent='Please enter your name.';valid=false}if(!valid)return;if(!sb){status('Account service is not configured yet. Follow DEPLOYMENT.md to connect Supabase.',true);return}const submit=$('submitAuth');submit.disabled=true;submit.textContent='Please wait…';status('Securely contacting the account service…');try{if(authMode==='signup'){const {data,error}=await sb.auth.signUp({email,password:pass,options:{data:{full_name:$('fullName').value.trim()},emailRedirectTo:location.origin}});if(error)throw error;if(data.session){await enterApp(data.user)}else{status('Supabase is still asking for email confirmation. Check that Confirm email is OFF in the Email provider settings, then try again.',true)}}else{const {data,error}=await sb.auth.signInWithPassword({email,password:pass});if(error)throw error;await enterApp(data.user)}}catch(err){status(err.message||'Unable to authenticate. Please try again.',true)}finally{submit.disabled=false;setAuthMode(authMode);submit.innerHTML=(authMode==='signup'?'Create account':'Sign in securely')+' <span style="float:right">↗</span>'}});
-async function enterApp(user){currentUser=user;$('auth').classList.add('hidden');$('app').classList.remove('hidden');const meta=user.user_metadata||{};const name=meta.full_name||user.email.split('@')[0]||'Candidate';$('candidateName').textContent=name;$('candidateEmail').textContent=user.email;$('avatar').textContent=(name[0]||'C').toUpperCase();$('hello').textContent='Welcome back, '+name.split(' ')[0]+'.';$('profileName').value=name;$('profileEmail').value=user.email;showPage('home');await saveProfileRecord(name);await loadHistory()}
+async function enterApp(user){currentUser=user;const authShell=$('auth'),appShell=$('app');const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;if(!reduce){authShell.classList.add('auth-exit');await new Promise(resolve=>setTimeout(resolve,280))}authShell.classList.add('hidden');authShell.classList.remove('auth-exit');appShell.classList.remove('hidden');if(!reduce){appShell.classList.add('app-enter');setTimeout(()=>appShell.classList.remove('app-enter'),1000)}const meta=user.user_metadata||{};const name=meta.full_name||user.email.split('@')[0]||'Candidate';$('candidateName').textContent=name;$('candidateEmail').textContent=user.email;$('avatar').textContent=(name[0]||'C').toUpperCase();$('hello').textContent='Welcome back, '+name.split(' ')[0]+'.';$('profileName').value=name;$('profileEmail').value=user.email;showPage('home');await saveProfileRecord(name);await loadHistory()}
 async function saveProfileRecord(name){if(!sb||!currentUser)return;const {error}=await sb.from('profiles').upsert({id:currentUser.id,full_name:name,updated_at:new Date().toISOString()});if(error)console.warn('Profile save:',error.message)}
 $('forgot').onclick=async()=>{if(!sb){status('Configure Supabase first to enable password recovery.',true);return}const email=$('email').value.trim();if(!email){status('Enter your email address first.',true);$('email').focus();return}const {error}=await sb.auth.resetPasswordForEmail(email,{redirectTo:location.origin});status(error?error.message:'If an account exists for that email, a password-reset link will be sent.')};
 async function oauth(provider){if(!sb){status('Configure Supabase and enable '+provider+' OAuth before using this option.',true);return}const {error}=await sb.auth.signInWithOAuth({provider,options:{redirectTo:location.origin}});if(error)status(error.message,true)}
 $('googleBtn').onclick=()=>oauth('google');$('appleBtn').onclick=()=>oauth('apple');
-$('logout').onclick=async()=>{if(sb)await sb.auth.signOut();currentUser=null;$('app').classList.add('hidden');$('auth').classList.remove('hidden');setAuthMode('signin')};
-function showPage(id){document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===id));window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
+$('logout').onclick=async()=>{if(sb)await sb.auth.signOut();currentUser=null;const appShell=$('app'),authShell=$('auth');if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){appShell.style.animation='authPortalOut .24s ease both';await new Promise(resolve=>setTimeout(resolve,240))}appShell.style.animation='';appShell.classList.add('hidden');authShell.classList.remove('hidden');authShell.classList.add('auth-reenter');setTimeout(()=>authShell.classList.remove('auth-reenter'),780);setAuthMode('signin')};
+let pageMotionToken=0;
+function showPage(id){
+ const target=$(id);if(!target)return;
+ const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const current=document.querySelector('.screen.active');
+ document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===id));
+ if(current===target){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});return}
+ const token=++pageMotionToken;
+ const reveal=()=>{if(token!==pageMotionToken)return;document.querySelectorAll('.screen').forEach(x=>{x.classList.remove('active','screen-exit','screen-enter')});target.classList.add('active');if(!reduce){target.classList.add('screen-enter');setTimeout(()=>target.classList.remove('screen-enter'),820)}};
+ if(reduce||!current){reveal()}else{current.classList.add('screen-exit');setTimeout(()=>{current.classList.remove('active','screen-exit');reveal()},170)}
+ window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+}
 document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>showPage(b.dataset.page));document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{if(b.dataset.go==='permission')startInterview();else showPage(b.dataset.go)});
 const companies=[['Amazon','Commerce, logistics & cloud','a','https://www.aboutamazon.com/'],['Google','Search, AI & cloud','G','https://about.google/'],['Microsoft','Software & cloud','M','https://www.microsoft.com/'],['Meta','Social platforms & AI','∞','https://about.meta.com/'],['Apple','Devices, software & services','A','https://www.apple.com/'],['Shopify','Commerce platform','S','https://www.shopify.com/'],['Netflix','Entertainment & streaming','N','https://about.netflix.com/'],['Adobe','Creative software & digital experience','A','https://www.adobe.com/']];
 function compCard(c){return `<button type="button" class="card company" data-company="${c[0]}" aria-label="Explore ${c[0]}"><div class="company-logo" aria-hidden="true">${c[2]}</div><h3>${c[0]}</h3><p>${c[1]}</p><div class="tags"><span>Company</span><span>Explore</span></div></button>`}
