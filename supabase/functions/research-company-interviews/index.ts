@@ -111,7 +111,7 @@ Deno.serve(async (req: Request) => {
     research.sources = Array.isArray(research.sources) ? research.sources : sources.map(s => ({ ...s, sourceType: "other" }));
     return json({
       research,
-      meta: { company, role, seniority, location, searchedAt: new Date().toISOString(), sourceCount: sources.length, searchQueries: queries.length, partialSearchErrors: queryErrors.length > 0 }
+      meta: { company, role, seniority, location, searchedAt: new Date().toISOString(), sourceCount: sources.length, searchQueries: queries.length, partialSearchErrors: queryErrors.length > 0, sourceEvidence: sources }
     });
   } catch (error) {
     console.error("research-company-interviews failed", error);
