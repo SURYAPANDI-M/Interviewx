@@ -100,8 +100,23 @@ Deno.serve(async (req: Request) => {
       })
     });
     if (!aiResponse.ok) {
-      console.error("AI provider error status", aiResponse.status);
-      return json({ error: "The research analysis service failed. Please retry shortly.", code: "AI_PROVIDER_ERROR" }, 502);
+      let providerMessage = "";
+      try {
+        const providerError = await aiResponse.json();
+        providerMessage = String(providerError?.error?.code || providerError?.error?.type || providerError?.error?.message || "");
+      } catch { /* Provider returned a non-JSON error body. */ }
+      const normalized = providerMessage.toLowerCase();
+      console.error("AI provider error", aiResponse.status, providerMessage.slice(0, 500));
+      if (aiResponse.status === 401 || normalized.includes("invalid_api_key")) {
+        return json({ error: "The AI provider rejected the configured API key. Check OPENAI_API_KEY in Supabase Edge Function secrets.", code: "AI_API_KEY_INVALID" }, 502);
+      }
+      if (aiResponse.status === 429 || normalized.includes("insufficient_quota") || normalized.includes("billing")) {
+        return json({ error: "The AI provider account has reached a usage limit or has no available API credit. Check API billing, usage limits, and the project linked to OPENAI_API_KEY. A ChatGPT Pro subscription does not automatically include API credit.", code: "AI_API_QUOTA_OR_BILLING" }, 502);
+      }
+      if (aiResponse.status === 404 || normalized.includes("model_not_found") || normalized.includes("does not exist")) {
+        return json({ error: "The configured AI model is unavailable to this API project. Check OPENAI_MODEL and the model access granted to the API account.", code: "AI_MODEL_UNAVAILABLE" }, 502);
+      }
+      return json({ error: "The AI provider rejected the research request (HTTP " + aiResponse.status + "). Check the API account, model access, and provider status.", code: "AI_PROVIDER_ERROR" }, 502);
     }
     const aiData = await aiResponse.json();
     let research;
